@@ -12,4 +12,31 @@
     <groupId>network.thezone.routiner.rest</groupId>
     <artifactId>rest-api</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>network.thezone.routiner.core</groupId>
+            <artifactId>core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <version>2.1.6</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.openliberty.tools</groupId>
+                <artifactId>liberty-maven-plugin</artifactId>
+                <version>3.3.3</version>
+                <configuration>
+                    <serverName>restServer</serverName>
+                    <installDirectory>/opt/OpenLiberty-21.0.0.1</installDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
