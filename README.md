@@ -1,4 +1,4 @@
-#Routiner
+# Routiner
 Jakarta EE demo - Assistant for your routine 
 ## Build
 To compile, package and make artifacts available as dependency execute from root folder:
