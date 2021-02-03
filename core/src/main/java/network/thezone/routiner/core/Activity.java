@@ -31,7 +31,7 @@ public class Activity implements Schedulable {
     }
 
     //idea: using factory methods to return
-    public Activity weeklyCycle(int[] pattern, LocalDate timeAnchorPoint) {
+    public static Activity weeklyCycle(int[] pattern, LocalDate timeAnchorPoint) {
         //return new Activity(pattern, timeAnchorPoint);
         return new Area(pattern, timeAnchorPoint);
     }
