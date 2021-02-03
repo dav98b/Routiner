@@ -1,0 +1,10 @@
+<server description="Routiner REST API server">
+    <featureManager>
+        <feature>jaxrs-2.1</feature>
+    </featureManager>
+
+    <httpEndpoint httpPort="${default.http.port}" httpsPort="${default.https.port}"
+                  id="defaultHttpEndpoint" host="*" />
+
+    <webApplication location="rest-api-1.0-SNAPSHOT.war" contextRoot="${app.context.root}"/>
+</server>

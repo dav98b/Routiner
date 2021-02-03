@@ -11,6 +11,13 @@
 
     <groupId>network.thezone.routiner.rest</groupId>
     <artifactId>rest-api</artifactId>
+    <packaging>war</packaging>
+
+    <properties>
+        <liberty.var.default.http.port>9080</liberty.var.default.http.port>
+        <liberty.var.default.https.port>9443</liberty.var.default.https.port>
+        <liberty.var.app.context.root>api</liberty.var.app.context.root>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -31,11 +38,24 @@
             <plugin>
                 <groupId>io.openliberty.tools</groupId>
                 <artifactId>liberty-maven-plugin</artifactId>
-                <version>3.3.3</version>
                 <configuration>
                     <serverName>restServer</serverName>
-                    <installDirectory>/opt/OpenLiberty-21.0.0.1</installDirectory>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
