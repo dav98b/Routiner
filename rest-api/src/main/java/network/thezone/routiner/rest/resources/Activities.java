@@ -1,9 +1,12 @@
 package network.thezone.routiner.rest.resources;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import network.thezone.routiner.core.Activity;
+
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.time.DateTimeException;
+import java.time.LocalDate;
 
 @Path("activities")
 public class Activities {
@@ -12,8 +15,27 @@ public class Activities {
     }
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     public String getActivities() {
-        return "test";
+        return null;
     }
+
+    @GET
+    /* day format can be enforced through a regex.
+     * This simple regex matches just the date format YYYY-MM-DD but
+     * doesn't guarantee the date to be valid, that's up to LocalDate.
+     */
+    @Path("{date: \\d{4}-\\d{2}-\\d{2}}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getActivitiesByDay(@PathParam("date") String plainDate) {
+        LocalDate date;
+        try {
+            date = LocalDate.parse(plainDate);
+        } catch (DateTimeException ex) {
+            return Response.status(400).build();
+        }
+        //return all activities scheduled on date instead
+        return Response.ok().build();
+    }
+
 }
