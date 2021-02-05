@@ -8,6 +8,8 @@ import javax.ws.rs.core.Response;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 
+import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
+
 @Path("activities")
 public class Activities {
 
@@ -32,7 +34,7 @@ public class Activities {
         try {
             date = LocalDate.parse(plainDate);
         } catch (DateTimeException ex) {
-            return Response.status(400).build();
+            return Response.status(BAD_REQUEST).build();
         }
         //return all activities scheduled on date instead
         return Response.ok().build();
