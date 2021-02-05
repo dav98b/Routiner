@@ -1,4 +1,4 @@
-package network.thezone.routiner.rest.resources;
+package network.thezone.routiner.rest;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
