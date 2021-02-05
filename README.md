@@ -1,5 +1,11 @@
 # Routiner
 Jakarta EE demo - Assistant for your routine 
+
+## TODO
+* REST endpoints implementation
+* Web client which provides UI and consumes REST APIs
+* Finish core domain model
+
 ## Build
 To compile, package and make artifacts available as dependency execute from root folder:
 ```mvn install```
